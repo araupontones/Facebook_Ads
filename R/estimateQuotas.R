@@ -9,6 +9,7 @@ library(janitor)
 
 
 infile <- file.path("data/census.xlsx")
+exfile <- file.path("data/quotas_5perc_error.xlsx")
 
 
 census <- import(infile)
@@ -45,4 +46,6 @@ quotas$quota[quotas$Group_10 == "Total"]
 #based on the parameters, the total sample would be of 5,347. If a lower sample is to be defined,
 # allow a larger error or reduce the confidence interval
 
+#export ================================================================
+export(quotas, exfile, overwrite = T)
 
